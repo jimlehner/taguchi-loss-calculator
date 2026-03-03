@@ -222,7 +222,7 @@ with tab2:
                     step=0.01,
                     format="%.2f")
     
-    characteristic = col4.number_input(label="Enter value for quality characteristic", 
+    characteristic = col4.number_input(label="Enter Value for Quality Characteristic", 
                     min_value=0.00,
                     value=28.00,
                     step=0.01,
@@ -617,3 +617,4 @@ with tab3:
     with col_mid:
 
         st.plotly_chart(fig, use_container_width=True)
+
