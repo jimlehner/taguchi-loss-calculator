@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 streamlit==1.50.0
 pandas==2.3.3
 numpy==1.26.4
 plotly==5.22.0
 pillow==11.1.0
-=======
-streamlit==1.50.0
-pandas==2.3.3
-numpy==1.26.4
-plotly==5.22.0
-pillow==9.4.0
->>>>>>> 39947e8a4b79773dc04e34745131814eafb90f4e
