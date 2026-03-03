@@ -2,6 +2,9 @@
 
 An interactive web app for calculating loss due to poor quality using the Taguchi loss function.
 
+## Preview
+![App Screenshot](figures/taguchi_loss_calc_example.png)
+
 ## Features
 - Calculate expected loss for a single measurement
 - Calculate expected average loss for a distribution of measurements
