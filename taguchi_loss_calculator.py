@@ -9,7 +9,7 @@ im = "📉"
 st.set_page_config(
     page_title="Expected Loss Calculator",
     page_icon=im,
-    initial_sidebar_state='expanded',
+    initial_sidebar_state='auto',
     layout="wide"
 )
 
@@ -625,6 +625,7 @@ with tab3:
     with col_mid:
 
         st.plotly_chart(fig, use_container_width=True)
+
 
 
 
