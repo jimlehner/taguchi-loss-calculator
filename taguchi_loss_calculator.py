@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from PIL import Image
 
-im = "gear"
+im = "📉"
 st.set_page_config(
     page_title="Expected Loss Calculator",
     page_icon=im,
@@ -15,6 +15,12 @@ st.set_page_config(
 
 st.title("Taguchi Loss Calculator")
 st.markdown("### A project from [The Broken Quality Initiative](https://www.brokenquality.com/)")
+
+st.markdown(
+    """
+    The Taguchi loss calculator allows users to calculate the economic loss due to poor quality in accordance with the Taguchi loss function.
+    By selecting the tabs below, loss can be calculated for a single measurement or a distribution of measurements.
+    """)
 
 # --- SIDEBAR ---
 with st.sidebar:
@@ -619,5 +625,6 @@ with tab3:
     with col_mid:
 
         st.plotly_chart(fig, use_container_width=True)
+
 
 
