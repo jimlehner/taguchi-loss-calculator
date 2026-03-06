@@ -83,7 +83,8 @@ with tab1:
     _, col_mid, _ = st.columns([0.5, 2, 0.5])
 
     with col_mid:
-        st.image("figures/Fig_2_quadratic_loss_function.png", use_container_width=True)
+        st.image("figures/Fig_2_quadratic_loss_function.png", use_container_width=True, 
+                 caption="Figure 1. The Taguchi concept of economic loss due to poor quality is governed by a quadratic loss function within some region close to the target."  )
     
     st.markdown(
         """
@@ -100,7 +101,8 @@ with tab1:
     _, col_mid, _ = st.columns([0.5, 2, 0.5])
 
     with col_mid:
-        st.image("figures/Fig_1_square_loss_function.png", use_container_width=True)
+        st.image("figures/Fig_1_square_loss_function.png", use_container_width=True,
+                caption="Figure 2. The conformance to specification concept of economic loss due to poor quality is governed by a square loss function.")
 
     st.markdown(
         """
@@ -617,4 +619,5 @@ with tab3:
     with col_mid:
 
         st.plotly_chart(fig, use_container_width=True)
+
 
