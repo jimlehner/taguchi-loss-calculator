@@ -40,7 +40,7 @@ with st.sidebar:
     st.markdown("# About the author")
     st.markdown(
         """
-        Jim Lehner is a graduate of Worcester Polytechnic Institute (WPI), with an undergraduate degree in mechanical engineering and a graduate degree in 
+        [Jim Lehner](https://www.linkedin.com/in/jim-lehner/) is a graduate of Worcester Polytechnic Institute (WPI), with an undergraduate degree in mechanical engineering and a graduate degree in 
         manufacturing engineering. His professional experience and personal interests that place him at the confluence of manufacturing, data analytics, mechanical 
         engineering, and quality improvement. This has allowed Jim to reduced costs and improved quality in the automotive, medical device, aerospace, and defense 
         industries. The unifying feature to Jim's success, regardless of the industry, is his hands-on mentality and deep understanding of variation.
@@ -625,6 +625,7 @@ with tab3:
     with col_mid:
 
         st.plotly_chart(fig, use_container_width=True)
+
 
 
 
