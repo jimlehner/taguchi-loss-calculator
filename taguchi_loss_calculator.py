@@ -448,7 +448,7 @@ with tab3:
         elif answer_4 in ["$7.50", "$0.39", "$1.56"]:
             st.error("Incorrect, try again! ❌")
         else:
-            st.success("Correct! Even though the mean of 31.25 units is close to the target, the large standard deviation increases the expected loss per unit to \$3.94." \
+            st.success("Correct! Even though the mean of 31.25 units is close to the target, the large standard deviation increases the expected loss per unit to \$2.60." \
                     "This is why operating both **on-target** and with **minimum variance** are critical to producing products of world-class quality. ✅")
 
     st.divider()
