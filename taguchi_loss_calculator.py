@@ -136,7 +136,7 @@ with tab2:
             """
         )
 
-    st.markdown("## Calculations")
+    # st.markdown("## Calculations")
     with st.expander("Click to learn more about how the expected loss for a single measurement is calculated"):
         st.markdown(
             """
@@ -165,7 +165,7 @@ with tab2:
             """
         )
 
-    st.markdown("## Questions")
+    # st.markdown("## Questions")
     with st.expander("Click to answer questions about the expected loss for a single measurement"):
         answer_1 = st.radio("What is the expected loss due to poor quality when the measured value for the quality characteristic is 29 units?",
                             index=None,
@@ -349,8 +349,7 @@ with tab2:
 
 # --- TAB3: LOSS FOR A DISTRIBUTION ---
 with tab3:
-    st.markdown("## Instructions")
-
+    # st.markdown("## Instructions")
     st.markdown(
         """
         To calculate the loss due to poor quality for a distribution of measurements, you can either:
@@ -369,7 +368,7 @@ with tab3:
         limits.
         """
     )
-    st.markdown("## Calculations")
+    # st.markdown("## Calculations")
     with st.expander("Click to learn more about how the expected loss per unit for a distribution is calculated"):
         st.markdown(
             """
@@ -405,7 +404,7 @@ with tab3:
             """
         )
 
-    st.markdown("## Questions")
+    # st.markdown("## Questions")
     with st.expander("Click to answer questions about the expected loss per unit for a distribution"):
         # Question 1
         answer_1 = st.radio("What is the expected loss per unit (average) when the mean of the distribution is 32.24 units, the standard deviation is 1.12 units, "
@@ -520,7 +519,7 @@ with tab3:
     K_d = c_scrap_d/(USL_d - Target_d)**2
 
     # Calculate loss
-    loss_d = K_d * ((mean - Target_d) ** 2 + (std)) ** 2
+    loss_d = K_d * ((mean - Target_d) ** 2 + (std) ** 2)
 
     col1.metric("Tolerance", f"{Tolerance_d:.{round_value_2}f}")
     col2.metric("Target", f"{Target_d:.{round_value_2}f}")
@@ -625,8 +624,6 @@ with tab3:
     with col_mid:
 
         st.plotly_chart(fig, use_container_width=True)
-
-
 
 
 
