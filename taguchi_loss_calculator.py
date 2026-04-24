@@ -9,7 +9,7 @@ im = "📉"
 st.set_page_config(
     page_title="Expected Loss Calculator",
     page_icon=im,
-    initial_sidebar_state='auto',
+    initial_sidebar_state='collapsed',
     layout="wide"
 )
 
@@ -349,7 +349,7 @@ with tab2:
 
 # --- TAB3: LOSS FOR A DISTRIBUTION ---
 with tab3:
-    # st.markdown("## Instructions")
+    st.markdown("## Instructions")
     st.markdown(
         """
         To calculate the loss due to poor quality for a distribution of measurements, you can either:
@@ -579,7 +579,7 @@ with tab3:
 
     fig.update_layout(
         showlegend=False,
-        height=600,
+        height=500,
         xaxis_title="Quality Characteristic",
         yaxis=dict(showticklabels=True, showgrid=True, zeroline=False, title="Loss Due to Poor Quality ($)"),
         yaxis2=dict(showticklabels=False, showgrid=False, zeroline=False, overlaying="y", side="right")
