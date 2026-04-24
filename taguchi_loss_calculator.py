@@ -410,21 +410,21 @@ with tab3:
         answer_1 = st.radio("What is the expected loss per unit (average) when the mean of the distribution is 32.24 units, the standard deviation is 1.12 units, "
                             "the USL is 33 units, the LSL is 27 units, and the cost of scrap is \$5.00?",
                             index=None,
-                            options=["$3.45", "$505.56", "$4.45", "$20.93"],
+                            options=["$3.48", "$505.56", "$4.45", "$20.93"],
                             key="radio_4"
                             )
         
         if answer_1 is None:
             pass 
-        elif answer_1 in ["$3.45", "$1.00", "$505.56"]:
+        elif answer_1 in ["$20.93", "$1.00", "$505.56"]:
             st.error("Incorrect, try again! ❌")
         else:
-            st.success("Correct! As the mean deviates from the target and the standard deviation increases, the expected average loss per unit increases to \$20.93. ✅")
+            st.success("Correct! As the mean deviates from the target and the standard deviation increases, the expected average loss per unit increases to \$3.48. ✅")
 
         # Question 3
         answer_3 = st.radio("What is the expected average loss per unit when the mean of the distribution is 30.25 units and the standard deviation is 0.5 units?",
                             index=None,
-                            options=["$6.62", "$0.38", "$10.15", "$2.55"],
+                            options=["$6.62", "$0.17", "$10.15", "$2.55"],
                             key="radio_6"
                             )
         
@@ -439,7 +439,7 @@ with tab3:
         answer_4 = st.radio("What is the expected average loss per unit when the mean of the distribution is 30.25 units, the standard deviation is 1.75 units, and "\
                             "the cost of scrap is \$7.50?",
                             index=None,
-                            options=["$7.50", "$0.39", "$3.94", "$1.56"],
+                            options=["$7.50", "$0.39", "$2.60", "$1.56"],
                             key="radio_7"
                             )
         
