@@ -6,7 +6,7 @@ An interactive web application for calculating the economic loss of poor quality
 
 ## Overview
 
-Try the live app at [economic-loss.streamlit.app](https://economic-loss.streamlit.app).
+Try the live app at [taguchi-loss.streamlit.app](https://economic-loss.streamlit.app).
 
 The Taguchi loss function is a high-fidelity, incremental model of economic loss due to poor quality. Unlike the traditional conformance-to-specification ("goalpost") approach — which treats all values within spec limits as equally "good" — the Taguchi loss function states that loss increases quadratically as a quality or performance characteristic deviates from the target value.
 
