@@ -1,18 +1,215 @@
 # Taguchi Loss Calculator
 
-An interactive web app for calculating loss due to poor quality using the Taguchi loss function.
+An interactive web application for calculating the economic loss of poor quality using the Taguchi loss function. Built as part of [The Broken Quality Initiative](https://www.brokenquality.com/).
+
+---
+
+## Overview
+
+Try the live app at [economic-loss.streamlit.app](https://economic-loss.streamlit.app).
+
+The Taguchi loss function is a high-fidelity, incremental model of economic loss due to poor quality. Unlike the traditional conformance-to-specification ("goalpost") approach — which treats all values within spec limits as equally "good" — the Taguchi loss function states that loss increases quadratically as a quality or performance characteristic deviates from the target value.
+
+This app allows users to:
+- Calculate the expected loss for a single measurement
+- Calculate the expected average loss per unit for a distribution of measurements
+- Visualize the loss function alongside a histogram of process data
+- Test their understanding with interactive questions
+
+---
 
 ## Features
-- Calculate expected loss for a single measurement
-- Calculate expected average loss for a distribution of measurements
-- Upload CSV files or enter parameters manually
 
-## Live App
-[Click here to use the app](https://taguchi-loss-calculator.streamlit.app/)
+- **Single measurement calculator** — calculate loss for one measurement given USL, LSL, cost of scrap, and the measured value
+- **Distribution calculator** — calculate expected average loss per unit given a mean and standard deviation, or by uploading a CSV file
+- **Interactive charts** — Plotly visualizations of the loss function with annotations for the characteristic value, spec limits, and target
+- **Interactive questions** — multiple choice questions with instant feedback for both calculators
+- **Configurable rounding** — adjustable decimal places for all displayed values
+
+---
+
+## Installation
+
+### Requirements
+
+```
+streamlit
+pandas
+numpy
+plotly
+Pillow
+```
+
+Install dependencies:
+
+```bash
+pip install streamlit pandas numpy plotly Pillow
+```
+
+### Running the App
+
+```bash
+streamlit run taguchi_loss_calculator.py
+```
+
+---
+
+## File Structure
+
+```
+│   LICENSE
+│   README.md
+│   requirements.txt
+│   styles.css
+│   taguchi_loss_app.py
+│
+├───calculations
+│   │   distribution_calculations.py
+│   │   distribution_loss_curve.py
+│   │   taguchi_loss.py
+│   │   __init__.py
+│   │
+│   └───__pycache__
+│           distribution_calculations.cpython-39.pyc
+│           distribution_loss_curve.cpython-39.pyc
+│           taguchi_loss.cpython-39.pyc
+│           __init__.cpython-39.pyc
+│
+├───components
+│   │   additional_resources.py
+│   │   distribution_chart.py
+│   │   distribution_controls.py
+│   │   distribution_data.py
+│   │   distribution_measurement.py
+│   │   distribution_summary.py
+│   │   markdown_utils.py
+│   │   overview.py
+│   │   sidebar.py
+│   │   single_measurement.py
+│   │   single_measurement_controls.py
+│   │   single_measurement_metrics.py
+│   │   taguchi_chart.py
+│   │   taguchi_loss.py
+│   │   __init__.py
+│   │
+│   └───__pycache__
+│           additional_resources.cpython-39.pyc
+│           distribution_chart.cpython-39.pyc
+│           distribution_controls.cpython-39.pyc
+│           distribution_data.cpython-39.pyc
+│           distribution_measurement.cpython-39.pyc
+│           distribution_summary.cpython-39.pyc
+│           markdown_utils.cpython-39.pyc
+│           overview.cpython-39.pyc
+│           sidebar.cpython-39.pyc
+│           single_measurement.cpython-39.pyc
+│           single_measurement_controls.cpython-39.pyc
+│           single_measurement_metrics.cpython-39.pyc
+│           taguchi_chart.cpython-39.pyc
+│           __init__.cpython-39.pyc
+│
+├───content
+│       characterization_flowchart.md
+│       distribution_calculations.md
+│       distribution_instructions.md
+│       distribution_questions.md
+│       overview.md
+│       sidebar_author.md
+│       sidebar_contact.md
+│       sidebar_project.md
+│       sidebar_socials.md
+│       sidebar_website.md
+│       single_measurement_calculations.md
+│       single_measurement_instructions.md
+│       single_measurement_questions.md
+│       understanding_process_cap.md
+│       virus_of_variation.md
+│       xmr_chart_it.md
+│
+├───data
+│       part_diameters.csv
+│
+└───figures
+        Broken_quality_logo.png
+        characterization_flowchart.png
+        EQ_average_taguchi_loss.png
+        EQ_loss_function.png
+        EQ_numeric_constant_K.png
+        quadratic_loss_function.png
+        square_loss_function.png
+        taguchi_loss_example.png
+        understand_process_cap.png
+        virus_of_variation_cover.png
+        xmr_chart.pn
+```
+
+---
+
+## How to Use
+
+### Tab 1: Overview
+Provides an introduction to the Taguchi loss function and how it compares to the traditional conformance-to-specification approach.
+
+### Tab 2: Loss for a Single Measurement
+Enter the following parameters to calculate the expected loss for a single measurement:
+
+| Input | Description | Default |
+|---|---|---|
+| USL | Upper Specification Limit | 33.00 |
+| LSL | Lower Specification Limit | 27.00 |
+| Cost of Scrap | Cost to scrap a nonconforming part | $5.00 |
+| Quality Characteristic | The measured value | 28.00 |
+
+The app calculates and displays the tolerance, target, numeric constant K, and expected loss. A chart of the loss function is shown with the measured value plotted as a point on the curve.
+
+### Tab 3: Loss for a Distribution of Measurements
+Provide process distribution parameters in one of two ways:
+
+1. **Upload a CSV file** — select the column containing the process data
+2. **Manual entry** — enter the mean and standard deviation directly
+
+Then enter USL, LSL, and cost of scrap to calculate the expected average loss per unit. A histogram of the data is overlaid with the loss function curve.
+
+---
+
+## Formulas
+
+### Loss for a Single Measurement
+
+```
+L(x) = K × (x - T)²
+```
+
+### Numeric Constant K
+
+```
+K = C_scrap / (x_scrap - T)²
+```
+
+### Expected Average Loss per Unit
+
+```
+E{L(x)} = K × [(X̄ - T)² + σ²]
+```
+
+Where:
+- `L(x)` is the loss for a single measurement
+- `E{L(x)}` is the expected average loss per unit
+- `K` is the numeric constant ($/unit²)
+- `x` is the measured quality or performance characteristic
+- `T` is the target value
+- `X̄` is the mean of the distribution
+- `σ` is the standard deviation of the distribution
+- `C_scrap` is the cost of scrapping a nonconforming part
+- `x_scrap` is the spec limit (USL or LSL)
+
+---
 
 ## About
-Built by Jim Lehner as part of [The Broken Quality Initiative](https://www.brokenquality.com/).
 
-## Run Locally
-pip install -r requirements.txt
-streamlit run taguchi_loss_calculator.py
+This app is part of [The Broken Quality Initiative](https://www.brokenquality.com/), a body of work that teaches engineers how to reduce costs and improve quality by understanding variation.
+
+To learn more about the Taguchi loss function, visit [BrokenQuality.com/taguchi-loss-function](https://www.brokenquality.com/taguchi-loss-function).
+
+**Author:** [Jim Lehner](https://www.linkedin.com/in/jim-lehner/)
+**Contact:** James.Lehner@gmail.com | QualityIsBroken@gmail.com
